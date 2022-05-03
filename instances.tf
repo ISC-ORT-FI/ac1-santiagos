@@ -2,6 +2,7 @@ resource "aws_instance" "ac1-instance" {
   ami                    = "ami-03ededff12e34e59e"
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.ac1-sg.id]
+  subnet_id              = aws_subnet.ac1-private-subnet.id
   key_name               = "vockey"
   tags = {
     Name      = "ac1-instance"
@@ -11,7 +12,7 @@ resource "aws_instance" "ac1-instance" {
   connection {
     type        = "ssh"
     user        = "ec2-user"
-    private_key = file("~/Documents/ORT/labsuser.cer")
+    private_key = file("/home/sarpi/ac1-santiagos/lab.pem")
     host        = self.public_ip
   }
   provisioner "remote-exec" {
