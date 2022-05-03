@@ -19,3 +19,12 @@ El resultado debe ser la web de "Caffé" visualizada desde la url del LoadBalanc
 
 
 ________
+
+Errores:
+Profile definido como variable, lo cambiamos por "default" tambien lo podriamos haber definido como variable, pero nos parecio que era lo mismo.
+En instance definimos la subnet como subnet_id              = aws_subnet.ac1-private-subnet.id debido a que nos quedaba con la subnet por defecto.
+Tuvimos que cambiar el certificado de acceso SSH
+Se cambio en el Security Group el puerto 88 por 80.
+Se cambio el cidr_block = "0.0.0.0/0" de la route table
+
+
