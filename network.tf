@@ -10,8 +10,8 @@ resource "aws_vpc" "vpc-ac1" {
 
 resource "aws_subnet" "ac1-private-subnet" {
   vpc_id                  = aws_vpc.vpc-ac1.id
-  cidr_block              = "172.16.1.0/24"
-  availability_zone       = "us-east-1a"
+  cidr_block              = var.private_subnet
+  availability_zone       = var.vpc_aws_az
   map_public_ip_on_launch = "true"
   tags = {
     Name = "terraform-ac1-private-subnet"
@@ -20,8 +20,8 @@ resource "aws_subnet" "ac1-private-subnet" {
 
 resource "aws_subnet" "ac1-private-subnet-2" {
   vpc_id                  = aws_vpc.vpc-ac1.id
-  cidr_block              = "172.16.2.0/24"
-  availability_zone       = "us-east-1b"
+  cidr_block              = var.private_subnet-2
+  availability_zone       = var.vpc_aws_az-2
   map_public_ip_on_launch = "true"
   tags = {
     Name = "terraform-ac1-private-subnet-2"
